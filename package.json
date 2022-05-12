@@ -1,0 +1,24 @@
+{
+  "name": "bagpacker",
+  "version": "1.0.0",
+  "description": "Item check list desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heis-abhinav/BagPacker.git"
+  },
+  "author": "Abhinav Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heis-abhinav/BagPacker/issues"
+  },
+  "homepage": "https://github.com/heis-abhinav/BagPacker#readme",
+  "dependencies": {
+    "electron": "^18.2.3",
+    "electron-prebuilt-compile": "^8.2.0"
+  }
+}
