@@ -2,7 +2,7 @@
   "name": "bagpacker",
   "version": "1.0.0",
   "description": "Item check list desktop app",
-  "main": "main.js",
+  "main": "./app/main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,17 @@
   },
   "homepage": "https://github.com/heis-abhinav/BagPacker#readme",
   "dependencies": {
+    "@babel/core": "^7.17.10",
     "electron": "^18.2.3",
-    "electron-prebuilt-compile": "^8.2.0"
+    "electron-pug": "^2.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "babel": "^6.23.0"
+  },
+  "resolutions": {
+    "minimist": "1.2.6"
   }
 }
