@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
+const applicationMenu = require('./application-menu');
 let mainWindow;
 app.on('ready',  () => {
 	mainWindow = new BrowserWindow({
@@ -13,6 +14,7 @@ app.on('ready',  () => {
 			enableRemoteModule :true
 		}
 	});
+	Menu.setApplicationMenu(applicationMenu);
 	mainWindow.loadFile('app/index.html');
 	//mainWindow.loadURL(`file://${__dirname}/index.pug`)
 	mainWindow.once('ready-to-show', () => {
