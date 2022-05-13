@@ -3,7 +3,7 @@ const application = document.getElementById('application');
 const unpackedItemsList = document.getElementById('unpacked-items');
 const packedItemsList = document.getElementById('packed-items');
 const addItemButton = document.querySelector('#addItem');
-const item = document.querySelector('.itemm');
+const inputItem = document.getElementById('inputItem');
 const items = []
 const unpackedItems = []
 
@@ -41,6 +41,7 @@ const addItemToList = (itemName) => {
 
 const addItemToUnpackedList = (itemName) => {
 	unpackedItems.push(itemName);
+	packedItems.splice(packedItems.indexOf(itemName));
 	const itemElement = createItemElement(itemName);
 	unpackedItemsList.append(itemElement);
 }
@@ -54,9 +55,12 @@ const addItemToPackedList = (itemName) => {
 }
 
 addItemButton.addEventListener('click', () => {
-	addItemToList(no);
-	no += 1;
-	//console.log(items);
+	const value = inputItem.value.trim();
+	if(value != '' && value != null){
+		const itemName = addItemToList(value);
+		console.log(value);
+		inputItem.value = '';
+	}
 });
 
 application.addEventListener('click', (event) => {
