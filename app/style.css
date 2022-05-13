@@ -5,20 +5,21 @@ html {
 html, body {
   max-height: 100%;
  // overflow-x: auto;
+ background-color: rgb(228, 248, 245);
 }
 input {
   padding: 0.5em;
-  border: 1px solid #f32e5b;
-  background-color: #fbbfcd;
+  border: 2px solid  #f68814;
+  border-radius: 2px;
+  background-color: rgb(228, 248, 245);
 }
 button, .button, input[type="submit"] {
-  background-color: #f32e5b;
-  border: 1px solid #e10d3d;
+  background-color:  #bcb7b2;
   color: white;
   padding: 0.5em;
 }
 button:hover, .button:hover, input[type="submit"]:hover {
-  background-color: #f65e81;
+  background-color:  #8a8988 ;
 }
 button:active, .button:active, input[type="submit"]:active {
   background-color: #f4466e;
