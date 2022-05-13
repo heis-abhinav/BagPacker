@@ -27,7 +27,7 @@ const addPackedItemElement = (itemName) => {
 	itemElement.classList.add('item-list-item');
 	itemElement.innerHTML = `
 		<div class ="item">
-			<input type ="checkbox" class = "packeditem" checked ="checked" name = "packedItemCheckBox" id = "${items.indexOf(itemName)}" value ="${itemName}">
+			<input type ="checkbox" class = "packeditem" checked ="checked" name = "packedItemCheckBox" value ="${itemName}">
 			<label>${itemName}</label>
 		</div>
 		`
@@ -51,14 +51,12 @@ const addItemToPackedList = (itemName) => {
 	unpackedItems.splice(unpackedItems.indexOf(itemName));
 	const itemElement = addPackedItemElement(itemName);
 	packedItemsList.append(itemElement);
-	console.log(packedItems);
 }
 
 addItemButton.addEventListener('click', () => {
 	const value = inputItem.value.trim();
 	if(value != '' && value != null){
 		const itemName = addItemToList(value);
-		console.log(value);
 		inputItem.value = '';
 	}
 });
@@ -70,8 +68,21 @@ application.addEventListener('click', (event) => {
 	const itemListItem = getButtonParent(event);
 	if(hasClass('unpackeditem')) console.log(event.target.value, checkItem(itemListItem, event.target.value));
 	if(hasClass('packeditem')) console.log('unchecked', uncheckItem(itemListItem, event.target.value));
+	if(hasClass('packall')) {
+		let elements = document.querySelectorAll('.unpackeditem');
+		elements.forEach(element => {
+			checkItem(element.parentNode.parentNode, element.value);
+		});
+	}
+	if(hasClass('unpackall')) {
+		let elements = document.querySelectorAll('.packeditem');
+		elements.forEach(element => {
+			uncheckItem(element.parentNode.parentNode, element.value);
+		});
+	}
 	
-})
+});
+
 const getButtonParent = ({target}) => {
 	return target.parentNode.parentNode;
 }
@@ -84,3 +95,5 @@ const uncheckItem = (target, value) => {
 	target.remove();
 	addItemToUnpackedList(value);
 }
+
+
